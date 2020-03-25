@@ -15,5 +15,16 @@ namespace kudvenEFCDemo.Models
 
         public DbSet<Employee> Employees { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Employee>().HasData(
+                    new Employee() {
+                        Id = "1",
+                        Name = "Bobby",
+                        Salary = 1000
+                    }
+                ) ;
+        }
+
     }
 }
